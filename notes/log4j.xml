@@ -1,1 +1,42 @@
 
+<?xml version="1.0" encoding="UTF-8"?> 
+<configuration status="OFF"> 
+  <!--定义常量-->
+  <properties>
+        <property name="LOG_HOME">target/logs</property>
+        <property name="LOG_NAME">logname</property>
+        <!-- 日志备份目录 -->
+        <property name="BACKUP_HOME">${LOG_HOME}/backup</property>
+        <property name="STAT_NAME">stat</property>
+        <property name="SERVER_NAME">global</property>
+    </properties>
+  <appenders> 
+    <Console name="Console" target="SYSTEM_OUT"> 
+      <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
+      <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY"/>
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/> 
+    </Console> 
+    <!--文件会打印出所有信息，这个log每次运行程序会自动清空，由append属性决定，适合临时测试用-->
+    <File name="log" fileName="${LOG_HOME}/${LOG_NAME}_file.log" append="false">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+    </File>
+    <!-- 这个会打印出所有的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档-->
+    <RollingFile name="RollingFile" fileName="${LOG_HOME}/${LOG_NAME}_rollingfile.log"
+         filePattern="${LOG_HOME}/$${date:yyyy-MM}/${LOG_NAME}-%d{MM-dd-yyyy}-%i.log.gz">
+      <PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n"/>
+      <SizeBasedTriggeringPolicy size="50MB"/>
+      <!-- DefaultRolloverStrategy属性如不设置，则默认为最多同一文件夹下7个文件，这里设置了20 -->
+      <DefaultRolloverStrategy max="20"/>
+    </RollingFile>
+  </appenders> 
+  <!--appender-ref必须为先前定义的appenders的名称-->
+  <loggers> 
+    <root level="trace"> 
+      <appender-ref ref="Console"/> 
+    </root> 
+    <!--我们只让这个logger输出error信息, additivity开启的话，由于这个logger也是满足root的，所以会被打印两遍。-->
+    <logger name="logger_error" level="error" additivity="false">
+       <appender-ref ref="RollingFile"/>
+    </logger>
+  </loggers> 
+</configuration
