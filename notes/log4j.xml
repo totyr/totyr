@@ -1,4 +1,5 @@
 
+<!--go to https://logging.apache.org/log4j/2.0/manual/index.html-->
 <?xml version="1.0" encoding="UTF-8"?> 
 <configuration status="OFF"> 
   <!--定义常量-->
@@ -12,8 +13,9 @@
     </properties>
   <appenders> 
     <Console name="Console" target="SYSTEM_OUT"> 
-      <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
-      <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY"/>
+      <!--控制台只输出info,warn及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
+       <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+      <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
       <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/> 
     </Console> 
     <!--文件会打印出所有信息，这个log每次运行程序会自动清空，由append属性决定，适合临时测试用-->
