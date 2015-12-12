@@ -1,4 +1,5 @@
-git --version
+--see http://git-scm.com/docs
+ --version
 
 
 
