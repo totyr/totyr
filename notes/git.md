@@ -4,7 +4,7 @@ $git --version,--help//查看版本，帮助
 $git config --global user.name ""//配置用户名   
 $git config --global user.email ""//配置邮箱  
 
-$git config --global [system.]alias.ci commit //为命令起别名
+$git config --global [system.]alias.ci commit //为命令起别名  
 $git config --global color.ui true //命令行颜色  
 $git clone git地址 [本地目录]  
 $ git status //查看git当前版本库的状态           
