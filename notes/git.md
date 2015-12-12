@@ -1,4 +1,4 @@
-//see http://git-scm.com/docs
+//see http://git-scm.com/docs  
 $git --version  
 $git config --global user.name ""    
 $git config --global user.email ""  
