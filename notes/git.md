@@ -1,9 +1,9 @@
 //see http://git-scm.com/docs  
-$git --version  
+$git --version,--help
 $git config --global user.name ""    
 $git config --global user.email ""  
 
-$git clone remote_git [<local_dic>]
+$git clone remote_git [local_dic]
 
 $ git status //查看git当前版本库的状态         
 $git pull //=fetch+merge    
