@@ -1,3 +1,4 @@
+###URL 编码 - 从 %00 到 %8f 
 <table class="dataintable">
     <tr>
       <th>ASCII Value</th>
@@ -450,10 +451,8 @@
 
     </tr>
 </table>
-</div>
 
-<div>
-<h2>URL 编码 - 从 %90 到 %ff</h2>
+###URL 编码 - 从 %90 到 %ff  
 
 <table class="dataintable">
     <tr>
