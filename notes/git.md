@@ -5,7 +5,7 @@ $git init dirName//创建版本库
 $git config --unset --global user.name//清空属性  
 $git config --global user.name ""//配置用户名   
 $git config --global user.email ""//配置邮箱  
-
+$git config --global core.autocrlf false//禁用自动转换   
 $git config --global [system.]alias.ci commit //为命令起别名  
 $git config --global color.ui true //命令行颜色  
 $git clone git地址 [本地目录]  
