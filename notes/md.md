@@ -1,5 +1,5 @@
 
-**声明：** 这份文档派生(fork)于[繁体中文版](https://github.com/riku/Markdown-Syntax-CN)，在此基础上进行了修改工作，并进行了适当的润色。
+**声明：** 这份文档派生(fork)于[简体中文版](https://github.com/riku/Markdown-Syntax-CN)，在此基础上进行了修改工作，并进行了适当的润色。
 
 
 Markdown 语法说明 (简体中文版) 
