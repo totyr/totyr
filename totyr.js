@@ -1,4 +1,8 @@
 var totyr={
+  patterns: {
+        int: /^\d+$/,//整型数字
+        number: /^(-?\d+)(\.\d+)?$/ //数字类型
+    },
   getRequestParams: function () {
        var url = location.search; //获取url中"?"符后的字串
        var theRequest = new Object();
