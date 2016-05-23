@@ -30,16 +30,17 @@ var totyr={
         }
     },
    //获取浏览器类型及其版本号,AddByL00293360_20160328
-   getBrowserInfo: function () {
-       var ua = navigator.userAgent.toLowerCase();
-       var s;
-       //IE只能判断11以下
-       (s = ua.match(/msie ([\d.]+)/)) ? Utils.browser.ie = s[1] :
-       (s = ua.match(/trident\/7.0/)) ? Utils.browser.ie =11:
-       (s = ua.match(/firefox\/([\d.]+)/)) ? Utils.browser.firefox = s[1] :
-       (s = ua.match(/chrome\/([\d.]+)/)) ? Utils.browser.chrome = s[1] :
-       (s = ua.match(/opera.([\d.]+)/)) ? Utils.browser.opera = s[1] :
-       (s = ua.match(/version\/([\d.]+).*safari/)) ? Utils.browser.safari = s[1] : 0;
-       return Utils.browser;
-   }
+   getBrowser: function () {
+        var browser = {};
+        var ua = navigator.userAgent.toLowerCase();
+        var s;
+        //IE只能判断11以下
+        (s = ua.match(/msie ([\d.]+)/)) ? browser = { type: 'IE', ver: s[1] } :
+        (s = ua.match(/trident\/7.0/)) ? browser = { type: 'IE', ver: 11 } :
+        (s = ua.match(/firefox\/([\d.]+)/)) ? browser = { type: 'firefox', ver: s[1] } :
+        (s = ua.match(/chrome\/([\d.]+)/)) ? browser = { type: 'chrome', ver: s[1] } :
+        (s = ua.match(/opera.([\d.]+)/)) ? browser = { type: 'opera', ver: s[1] } :
+        (s = ua.match(/version\/([\d.]+).*safari/)) ? browser = { type: 'safari', ver: s[1] } : 0;
+        return browser;
+    },
 }
