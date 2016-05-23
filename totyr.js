@@ -20,6 +20,15 @@ var totyr={
        Utils.URLParams = theRequest;
        return theRequest;
    },
+    //判断元素是否是数组
+    isArray: function (value) {
+        //ECMAScript5将Array.isArray()正式引入JavaScript，目的就是准确地检测一个值是否为数组。IE9+、 Firefox 4+、Safari 5+、Opera 10.5+和Chrome都实现了这个方法。但是在IE8之前的版本是不支持的。
+        if (typeof Array.isArray === "function") {
+            return Array.isArray(value);
+        } else {
+            return Object.prototype.toString.call(value) === "[object Array]";
+        }
+    },
    //获取浏览器类型及其版本号,AddByL00293360_20160328
    getBrowserInfo: function () {
        var ua = navigator.userAgent.toLowerCase();
