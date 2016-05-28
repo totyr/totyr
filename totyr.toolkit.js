@@ -17,7 +17,7 @@ var totyr={
                theRequest[str.split("=")[0]] = unescape(str.split("=")[1]);
            }
        }
-       Utils.URLParams = theRequest;
+       totyr.URLParams = theRequest;
        return theRequest;
    },
     //判断元素是否是数组
@@ -35,10 +35,10 @@ var totyr={
         var ua = navigator.userAgent.toLowerCase();
         var s;
         //IE只能判断11以下
-        (s = ua.match(/msie ([\d.]+)/)) ? browser = { type: 'IE', ver: s[1] } :
-        (s = ua.match(/trident\/7.0/)) ? browser = { type: 'IE', ver: 11 } :
-        (s = ua.match(/firefox\/([\d.]+)/)) ? browser = { type: 'firefox', ver: s[1] } :
+        (s = ua.match(/msie ([\d.]+)/)) ? browser = { type: 'ie', ver: s[1] } :
+        (s = ua.match(/trident\/7.0/)) ? browser = { type: 'ie', ver: 11 } :
         (s = ua.match(/chrome\/([\d.]+)/)) ? browser = { type: 'chrome', ver: s[1] } :
+        (s = ua.match(/firefox\/([\d.]+)/)) ? browser = { type: 'firefox', ver: s[1] } :
         (s = ua.match(/opera.([\d.]+)/)) ? browser = { type: 'opera', ver: s[1] } :
         (s = ua.match(/version\/([\d.]+).*safari/)) ? browser = { type: 'safari', ver: s[1] } : 0;
         return browser;
