@@ -43,4 +43,20 @@ var totyr={
         (s = ua.match(/version\/([\d.]+).*safari/)) ? browser = { type: 'safari', ver: s[1] } : 0;
         return browser;
     },
+     checkInput: function () {
+        $(document).off("input", "input").on("input", "input", function () {
+            var ds = this.dataset;
+            if (ds && ds.dataType && $.trim(this.value) != '') {
+                var pat =
+                    ds.dataType == "int" ? new RegExp('(-?\\d{1,' + (ds.dataLength || 9) + '})') :
+                    ds.dataType == "number" ? new RegExp('(-?\\d{1,' + ((ds.dataLength || 37) - (ds.precision || 2)) + '})(\\.\\d{0,' + (ds.precision || 2) + '})?') :
+                    ds.pat != null ? new RegExp(ds.pat) : null;
+                if (pat) {//如果类型存在
+                    var num = this.value.match(pat);
+                    if (num != null) num = num[0];
+                    if (this.value != num) this.value = num == null ? "" : num;
+                }
+            }
+        });
+    }
 }
