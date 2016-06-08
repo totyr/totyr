@@ -1,8 +1,4 @@
 var totyr={
-  patterns: {
-        int: /^\d+$/,//整型数字
-        number: /^(-?\d+)(\.\d+)?$/ //数字类型
-    },
   getRequestParams: function () {
        var url = location.search; //获取url中"?"符后的字串
        var theRequest = new Object();
@@ -81,5 +77,16 @@ var totyr={
             }
         }
         return format;
+    },
+    formatFloat: function (src, pos) {
+        if (src == null || src == '') {
+            return '';
+        }
+        pos = pos || 2;
+        if (typeof (pos) == "undefined" || pos < 0)
+            return src;
+        if (pos == 0)
+            return Math.round(src);
+        return Math.round(src * Math.pow(10, pos)) / Math.pow(10, pos);
     }
 }
