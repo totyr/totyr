@@ -14,7 +14,7 @@ var totyr={
                    theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
                }
            } else {
-               theRequest[str.split("=")[0]] = unescape(str.split("=")[1]);
+               theRequest[str.split("=")[0].toLowerCase()] = unescape(str.split("=")[1]);
            }
        }
        totyr.URLParams = theRequest;
