@@ -1,4 +1,4 @@
-//see http://git-scm.com/docs  
+see http://git-scm.com/docs  
 $git --version,--help//查看版本，帮助
 
 $git init dirName//创建版本库  
