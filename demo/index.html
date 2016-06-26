@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>ty-demo</title>
+<link rel="stylesheet" href="../tools/fontawesome/css/font-awesome.min.css" type="text/css" />
+<link rel="stylesheet" href="../totyr.site.css" type="text/css" />
+<link rel="stylesheet" href="../totyr.base.css" type="text/css" />
+<link rel="stylesheet" href="./css/index.css" type="text/css" />
+</head>
+<body>
+<hl class="w tc f16 fa fa-cart-plus title">自定义度量</hl>
+<div class="df ma select">
+   <span>分组一</span>
+   <select id='groupSel' class='op-sel'><option value='测试类型'>测试类型</option><option value='缺陷类型'>缺陷类型</option></select>
+   <span>分组二</span>
+   <select id='subGroupSel' class='op-sel'><option value='测试子类型'>测试子类型</option><option value='缺陷子类型'>缺陷子类型</option></select>
+   <span>统计值</span>
+   <select id='metricSel'  class='op-sel'><option value='defect'>缺陷数</option><option value='DI'>DI值</option></select>
+   <span>图表类型</span>
+   <select id='typeSel' class='op-sel'><option value='pie'>柱状图</option><option value='line'>折线图</option><option value='bar'>柱状图</option></select>
+</div>
+<div id="mainChart" class="w8 h6 ma main-chart">
+</div>
+</body>
+<script type="text/javascript" src="../tools/jquery-3.0.0.min.js"></script>
+<script type="text/javascript" src="../tools/highcharts/highstock-all.js"></script>
+<script type="text/javascript" src="../totyr.toolkit.js"></script>
+<script type="text/javascript" src="../totyr.toolkit.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
+</html>

@@ -1,4 +1,4 @@
-var totyr={
+var ty={
   getRequestParams: function () {
        var url = location.search; //获取url中"?"符后的字串
        var theRequest = new Object();
@@ -58,13 +58,13 @@ var totyr={
      dateFormat: function (format, date) {
         if (!date) date = new Date();
         var o = {
-            "M+": date.getMonth() + 1, //month 
-            "d+": date.getDate(), //day 
-            "h+": date.getHours(), //hour 
-            "m+": date.getMinutes(), //minute 
-            "s+": date.getSeconds(), //second 
-            "q+": Math.floor((date.getMonth() + 3) / 3), //quarter 
-            "S": date.getMilliseconds() //millisecond 
+            "M+": date.getMonth() + 1, //month
+            "d+": date.getDate(), //day
+            "h+": date.getHours(), //hour
+            "m+": date.getMinutes(), //minute
+            "s+": date.getSeconds(), //second
+            "q+": Math.floor((date.getMonth() + 3) / 3), //quarter
+            "S": date.getMilliseconds() //millisecond
         }
 
         if (/(y+)/.test(format)) {
