@@ -1,3 +1,9 @@
+##标示符
+####由字母开头，包含字母、数字、下划线。不能使用js保留字。　　　
+    abstract boolean break byte case catch char class const continue debugger default delete do double
+    else enum export extends false final finally float for function goto if implements import in instanceof log
+    native new null package private protected public return short static super switch synchronized
+    this throw throws transient true try typeof var volatile void while with
 ##js传递类型
 ###JS中基本类型是按值传递的，对象类型是按共享传递的。
 
