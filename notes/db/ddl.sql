@@ -9,3 +9,6 @@ alter table "table_name" alter column "column_name"  drop  not null;
 --添加注释oracle
 comment on table "table_name" is '';
 comment on column "table_name"."column_name" is '';
+
+--禁用日志oracle
+alter table "table_name" nologging;
