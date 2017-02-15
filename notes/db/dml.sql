@@ -1,3 +1,14 @@
+--sql block pg
+BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+DO LANGUAGE plpgsql $$
+declare name type:=value;
+    BEGIN
+       --sql
+    END;
+$$;
+commit;
+
+
 --分割字符串成行Oracle
 select a.id, 
 REGEXP_SUBSTR(a.pid ,'[^,]+',1,l) AS x
