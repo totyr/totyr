@@ -12,3 +12,7 @@ comment on column <table_name>.<column_name> is '';
 
 --启用/禁用日志oracle
 alter table <table_name> logging/nologging;
+
+--清理表空间
+--此命令为Oracle 10g新增功能，再执行该指令之前必须允许行移动alter table table_name enable row movement;
+alter table table_name shrink space
