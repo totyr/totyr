@@ -6,7 +6,7 @@
     this throw throws transient true try typeof var volatile void while with
 ##  语法
 ####  下列值被当做假false,其他对象为真true
-  false null undefined 空字符串'' 　数字0 数字NaN
+  false,null,undefined,空字符串'',数字0,数字NaN
 
 #### 反射　
 typeof(Object)检查对象类型,一共有六种类型:"number"、"string"、"boolean"、"object"、"function"、"undefined" 
