@@ -25,7 +25,7 @@ var ty={
             return Object.prototype.toString.call(value) === "[object Array]";
         }
     },
-   //获取浏览器类型及其版本号,AddByL00293360_20160328
+   //获取浏览器类型及其版本号
    getBrowser: function () {
         var browser = {};
         var ua = navigator.userAgent.toLowerCase();
@@ -88,5 +88,62 @@ var ty={
         if (pos == 0)
             return Math.round(src);
         return Math.round(src * Math.pow(10, pos)) / Math.pow(10, pos);
-    }
+    },
+    //广播收听者集合
+   broadcastReceiver: [],
+  //广播类型
+   broadcastType: {
+       esc: 'esc',
+       click: 'click'
+    },
+   //收听广播
+   listenToBroadcast: function(o) {
+     var list = ty.broadcastReceiver;
+     //url
+     if(!o.url){
+       o.url=''//当前页面,以防止无效调用
+     }
+     if(!o.uri){
+        o.uri=o.url//收听者主键，以防重复注册
+     }
+     //删除重复注册
+     for (var i = 0; i < list.length; i++) {
+         var receiver = list[i];
+          if (o.broadcastType == receiver.broadcastType && o.uri==receiver.uri) {
+              //删除重复注册的历史事件
+               list.splice(i, 1);
+               i--;
+              }
+          }
+      list.push(d);
+   },
+ //发送广播
+   broadcasting: function(broadcastType, e) {
+        var url=ty.getUri();
+        var list = ty.broadcastReceiver;
+        for (var i = 0; i < list.length; i++) {
+             if (list[i].url == url && ist[i].broadcastType == broadcastType  && list[i].handler) {
+                 list[i].handler(e);
+              }
+           }
+   },
+  registBroadEvent:function(){
+     //监听取消事件
+     $(window).keyup(function(e) {
+         if (e.keyCode == 27) { //此处代表按的是键盘的Esc键
+            ty.broadcasting(ty.broadcastType.esc, e);
+        }
+     });
+ //监听点击事件
+   $(window).click(function(e) {
+      ty.broadcasting(ty.broadcastType.click, e);
+    });
+  },
+  
+  //初始化工具类
+  init:function(){
+      //注册广播事件
+      ty.registBroadEvent();
+  }
 }
+ty.init();
