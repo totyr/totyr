@@ -6,4 +6,6 @@ html{font-size: 62.5%;}
 .df{display: flex;}.dn{display:none;}.db{display: block;}.dib{display: inline-block;}
 .f16{font-size: 1.6rem;}
 .ellipsis{text-overflow:ellipsis;overflow: hidden;white-space: nowrap;}
-.ellipsis-multi{display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;text-overflow:ellipsis;overflow: hidden;white-space: pre;}
+.ellipsis-multi-webkit{display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;text-overflow:ellipsis;overflow: hidden;white-space: pre;}
+.ellipsis-multi {line-height:1.4rem;height:4.2rem;overflow:hidden;position:relative;}
+.ellipsis-multi::after {content:"...";font-weight:bold; position:absolute;bottom:0;right:0;padding:0 1.2rem 0.1rem 0.5rem;}
