@@ -1,4 +1,4 @@
-var ty={
+var tyUtils={
   getRequestParams: function () {
        var url = location.search; //获取url中"?"符后的字串
        var theRequest = new Object();
@@ -13,7 +13,7 @@ var ty={
                theRequest[str.split("=")[0].toLowerCase()] = unescape(str.split("=")[1]);
            }
        }
-       totyr.URLParams = theRequest;
+       tyUtils.URLParams = theRequest;
        return theRequest;
    },
     //判断元素是否是数组
@@ -98,7 +98,7 @@ var ty={
     },
    //收听广播
    listenToBroadcast: function(o) {
-     var list = ty.broadcastReceiver;
+     var list = tyUtils.broadcastReceiver;
      //url
      if(!o.url){
        o.url=''//当前页面,以防止无效调用
@@ -119,8 +119,8 @@ var ty={
    },
  //发送广播
    broadcasting: function(broadcastType, e) {
-        var url=ty.getUri();
-        var list = ty.broadcastReceiver;
+        var url=tyUtils.getUri();
+        var list = tyUtils.broadcastReceiver;
         for (var i = 0; i < list.length; i++) {
              if (list[i].url == url && ist[i].broadcastType == broadcastType  && list[i].handler) {
                  list[i].handler(e);
@@ -131,19 +131,19 @@ var ty={
      //监听取消事件
      $(window).keyup(function(e) {
          if (e.keyCode == 27) { //此处代表按的是键盘的Esc键
-            ty.broadcasting(ty.broadcastType.esc, e);
+            tyUtils.broadcasting(tyUtils.broadcastType.esc, e);
         }
      });
  //监听点击事件
    $(window).click(function(e) {
-      ty.broadcasting(ty.broadcastType.click, e);
+      tyUtils.broadcasting(tyUtils.broadcastType.click, e);
     });
   },
   
   //初始化工具类
   init:function(){
       //注册广播事件
-      ty.registBroadEvent();
+      tyUtils.registBroadEvent();
   }
 }
-ty.init();
+tyUtils.init();
