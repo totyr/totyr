@@ -1,6 +1,19 @@
 -- 字符串转行
 select regexp_substr('a,b,c','[^,]+', 1, level) from dual
 connect by regexp_substr(a,b,c', '[^,]+', 1, level) is not null;
+
+--记录中转行
+select a.<othercolumn>,REGEXP_SUBSTR(a.<needsubstr>,'[^<splitstr>]+',1,l) AS pid
+  from  <table> a,
+    (SELECT LEVEL l FROM DUAL CONNECT BY LEVEL<(
+          select max(regexp_count(j.<needsubstr>,'<splitstr>'))+2
+          from dbo.<table> j
+          where j.<needsubstr> is not null
+    )
+  ) b
+  WHERE l <=regexp_count(a.<needsubstr>,',')+2
+  and a.<needsubstr> is not null;
+                         
                          
 --递归写法
 select id,name,pid
