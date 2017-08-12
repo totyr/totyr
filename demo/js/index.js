@@ -13,18 +13,18 @@ function showMainChart(group,subGroup,metricName,type){
   var subGroup=$('#subGroupSel').val();
   var type=$('#typeSel').val();
   var metricName=$('#metricSel').val();
-  var xLen=ty.formatFloat(Math.random(),1)*10+1;
+  var xLen=tyUtils.formatFloat(Math.random(),1)*10+1;
   var groupArr=[];
   var dataArr=[];
   if(type=='pie'){
     for(var i=1;i<xLen;i++){//随机生成图表
-      dataArr.push([group+i,ty.formatFloat(Math.random(),3)*100]);
+      dataArr.push([group+i,tyUtils.formatFloat(Math.random(),3)*100]);
     }
   }
   else{
     for(var i=0;i<xLen;i++){//随机生成图表
       groupArr.push(group+i);
-      dataArr.push(ty.formatFloat(Math.random(),3)*100);
+      dataArr.push(tyUtils.formatFloat(Math.random(),3)*100);
     }
   }
   var option={
