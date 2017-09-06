@@ -20,6 +20,8 @@ order by a.id desc
 
 --分页写法oracle
 
-select * from(select rownum as rn,t.* from(
-(select rownum as rnn,t.* from table_name t order by projectcode desc)t))t
-where rn<20 and rn>=10
+select * from(
+select a.*,row_number()over(order by <column> desc ) as rn
+from <table> a
+where 1=1
+) b where b.rn between 1 and 10;
