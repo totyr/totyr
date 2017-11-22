@@ -78,9 +78,12 @@ var tyUtils={
         }
         return format;
     },
-    formatFloat: function (src, pos) {
-        if (src == null || src == '') {
-            return '';
+    formatFloat: function (src, pos,replaceStr) {
+        //不能直接拿src运算，因为' '可能会被视为０
+        replaceStr=||replaceStr||'';
+        src=parseFloat(src);
+        if (isNaN(src)) {
+            return replaceStr;
         }
         pos = pos || 2;
         if (typeof (pos) == "undefined" || pos < 0)
