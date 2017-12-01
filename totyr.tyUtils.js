@@ -80,9 +80,8 @@ var tyUtils={
     },
     formatFloat: function (src, pos,replaceStr) {
         //不能直接拿src运算，因为' '可能会被视为０
-        replaceStr=||replaceStr||'';
-        src=parseFloat(src);
-        if (isNaN(src)) {
+        replaceStr=replaceStr||'';
+        if (isNaN(src)||src==null||(src+'').trim()='') {
             return replaceStr;
         }
         pos = pos || 2;
