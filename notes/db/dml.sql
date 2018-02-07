@@ -12,12 +12,11 @@ commit;
 
 --分割字符串成行
 --[oracle]
-select a.id, 
-REGEXP_SUBSTR(a.pid ,'[^,]+',1,l) AS x
-from table_name a,
-(SELECT LEVEL l FROM DUAL CONNECT BY LEVEL<=3) b
-WHERE l <=LENGTH(a.pid) - LENGTH(REPLACE(a.pid,',',''))+1
-order by a.id desc
+ select x.id ,regexp_substr(x.str, '[^,]+', 1, level) splitedStr  
+  from  x 
+connect by x.id = prior id  
+       and prior dbms_random.value is not null  
+       and level <= regexp_count(str, '[^,]+')
 
 
 --分页写法
