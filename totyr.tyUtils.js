@@ -16,6 +16,15 @@ var tyUtils={
        tyUtils.URLParams = theRequest;
        return theRequest;
    },
+   setQueryParamValue:function(queryString, key, newValue) {  
+    var replaced = false;  
+    var newParam = key + '=' + newValue;  
+    var result = queryString.replace(new RegExp('(^|&)' + key + '=(.*?)(?=$|&)', 'g'), function (s, p1, p2) {  
+      replaced = true;  
+      return p1 + newParam;  
+    });  
+    return replaced && result || queryString && (queryString + '&' + newParam) || newParam;  
+  },
     //判断元素是否是数组
     isArray: function (value) {
         //ECMAScript5将Array.isArray()正式引入JavaScript，目的就是准确地检测一个值是否为数组。IE9+、 Firefox 4+、Safari 5+、Opera 10.5+和Chrome都实现了这个方法。但是在IE8之前的版本是不支持的。
